@@ -33,7 +33,7 @@ services:
         restart: unless-stopped
         environment:
             MYSQL_DATABASE: app-laravel
-            MYSQL_USER: admin
+            MYSQL_USER: user
             MYSQL_ROOT_PASSWORD: root
             MYSQL_PASSWORD: root
         volumes:
@@ -51,8 +51,9 @@ services:
         ports:
             - "8080:80"
         environment:
-            PMA_HOST: admin
-            MYSQL_ROOT_PASSWORD: root
+            PMA_HOST: mysql
+            PMA_PASSWORD: root
+            PMA_ARBITRARY: 1
         networks:
             - laravel
 
