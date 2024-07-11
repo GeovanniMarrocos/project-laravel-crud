@@ -32,14 +32,14 @@ services:
         platform: linux/x86_64
         restart: unless-stopped
         environment:
-            MYSQL_DATABASE: app-laravel
-            MYSQL_USER: user
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_PASSWORD: root
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_USER: ${DB_USERNAME}
         volumes:
             - ./.docker/mysql/dbdata:/var/lib/mysql
         ports:
-            - "3306:3306"
+            - "3388:3306"
         networks:
             - laravel
 
