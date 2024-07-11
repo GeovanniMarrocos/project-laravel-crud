@@ -8,6 +8,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        return dd('UserController@index');
+        return view('users.index');
+    }
+
+    public function show($id)
+    {
+         dd('users.show', $id);
     }
 }

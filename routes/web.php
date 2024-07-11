@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\{
 };
 
 
-Route::get('/users', [UserController::class])->name('users.index');
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
 
 Route::get('/', function () {
     return view('welcome');
