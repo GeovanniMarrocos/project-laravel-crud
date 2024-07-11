@@ -27,19 +27,17 @@ services:
             - laravel
 
     # db mysql
-    db:
+    mysql:
         image: mysql:8.0
         platform: linux/x86_64
         restart: unless-stopped
         environment:
-            MYSQL_DATABASE: app-laravel
-            MYSQL_USER: admin
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_PASSWORD: root
+            MYSQL_DATABASE: project-laravel
+            MYSQL_ROOT_PASSWORD: test
         volumes:
             - ./.docker/mysql/dbdata:/var/lib/mysql
         ports:
-            - "3535:3306"
+            - "3306:3306"
         networks:
             - laravel
 
@@ -51,9 +49,9 @@ services:
         ports:
             - "8080:80"
         environment:
-            PMA_HOST: admin
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
-            PMA_PORT: 3306
+            MYSQL_USER: user
+            MYSQL_ROOT_PASSWORD: test
+            MYSQL_PASSWORD: test
         networks:
             - laravel
 
