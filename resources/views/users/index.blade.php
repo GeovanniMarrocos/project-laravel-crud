@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app');
+
+@section('title','Listagem de Usuários')
+
+@section('content')
+
     <h1>Listagem dos usuários</h1>
     <ul>
         @foreach ($users as $user)
             <li>
-                {{$user->name}} - {{$user->email}}
+                {{$user->name}} - {{$user->email}} | <a href="{{ route('users.show', $user->id) }}">Detalhes</a>
             </li>
         @endforeach
     </ul>
-</body>
-</html>
+
+@endsection

@@ -7,15 +7,23 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
+     public function index()
     {
         $users = User::get();
 
         return view('users.index', compact('users'));
     }
 
-    public function show($id)
+     public function show($id)
     {
-         dd('users.show', $id);
+
+        if(!$user = User::find($id))
+        {
+            return redirect()->route('users.index');
+        }else
+        {
+            return view('users.show', compact('user'));
+        }
+
     }
 }
