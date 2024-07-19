@@ -22,7 +22,7 @@ class StoreUpdateUserFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255|mix:3',
+            'name' => 'required|string|max:255|min:3',
             'email'=>[
                 'required',
                 'email',
