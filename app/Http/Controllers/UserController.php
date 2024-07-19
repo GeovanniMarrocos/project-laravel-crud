@@ -33,8 +33,15 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        dump('cadastrando usuário');
+        $encrypt = $request->all();
+        $encrypt['password'] = bcrypt($request->password);
+        $formData = $encrypt;
+
+        $user = User::create($formData);
+
+        return redirect()->route('users.index');
+
     }
 }
