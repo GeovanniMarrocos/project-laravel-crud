@@ -15,9 +15,9 @@
 
 <form action="{{ route('users.store') }}" method="post">
     @csrf
-    <input type="text" name="name" placeholder="Nome do Usuário:" >
-    <input type="email" name="email" placeholder="E-mail:" >
-    <input type="password" name="password" placeholder="Senha:" >
+    <input type="text" name="name" placeholder="Nome do Usuário:" value="{{ old('name') }}" >
+    <input type="email" name="email" placeholder="E-mail:" value="{{ old('email') }}">
+    <input type="password" name="password" placeholder="Senha:">
     <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 @endsection
