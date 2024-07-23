@@ -63,13 +63,15 @@ class UserController extends Controller
         {
             return redirect()->route('users.index');
         }
+
         $data = $request->only('name', 'email');
-        if($request->password)
+
+         if($request->password)
            $data['password'] = bcrypt($request->password);
 
-          $user->update($request->all());
+          $user->update($data);
 
-          return redirect('users.index');
+          return redirect()->route('users.index');
 
     }
 
