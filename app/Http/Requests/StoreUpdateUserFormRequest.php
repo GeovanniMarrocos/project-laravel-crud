@@ -21,12 +21,14 @@ class StoreUpdateUserFormRequest extends FormRequest
      */
     public function rules(): array
     {
+       $id= $this->id ?? '';
+
         $rules =  [
             'name' => 'required|string|max:255|min:3',
             'email'=>[
                 'required',
                 'email',
-                'unique:users',
+                "unique:users,email,{$id},id",
             ],
             'password' => [
                 'required',

@@ -56,7 +56,7 @@ class UserController extends Controller
 
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreUpdateUserFormRequest $request, $id)
     {
         if(!$user = User::find($id))
         {
