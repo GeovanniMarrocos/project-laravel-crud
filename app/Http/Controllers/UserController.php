@@ -36,11 +36,10 @@ class UserController extends Controller
 
     public function store(StoreUpdateUserFormRequest $request)
     {
-        $encrypt = $request->all();
-        $encrypt['password'] = bcrypt($request->password);
-        $formData = $encrypt;
+        $data = $request->all();
+        $data['password'] = bcrypt($request->password);
 
-        $user = User::create($formData);
+        $user = User::create($data);
 
         return redirect()->route('users.index');
 
@@ -57,7 +56,7 @@ class UserController extends Controller
 
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreUpdateUserFormRequest $request, $id)
     {
         if(!$user = User::find($id))
         {
