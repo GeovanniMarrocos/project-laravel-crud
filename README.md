@@ -23,7 +23,6 @@ cd app-laradocker.git
 docker-compose up -d
 ```
 
-
 **Crie o arquivo .env**
 ```sh
 cp .env.example .env
@@ -33,7 +32,6 @@ cp .env.example .env
 ```sh
 docker-compose exec app bash
 ```
-
 
 **Instale as dependências do projeto**
 ```sh
