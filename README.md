@@ -55,5 +55,5 @@ php artisan migrate
 ```
 
 Acesse o projeto
- exemplo: (http://localhost:8787)
+
 
